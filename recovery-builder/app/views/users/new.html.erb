@@ -1,5 +1,5 @@
 <h1>Sign Up </h1>
-<%if @user.errors%>
+<%if !@user.errors.blank?%>
 <%=@user.errors.full_messages%>
 <%end%>
 <br>
