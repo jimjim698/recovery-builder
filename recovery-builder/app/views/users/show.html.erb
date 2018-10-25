@@ -3,3 +3,5 @@
 <%if @user.manager%>
 <h3>Here are your current clients</h3>
 <%end%>
+<br>
+<%=link_to 'Sign Out', logout_path, method: 'delete'%>
