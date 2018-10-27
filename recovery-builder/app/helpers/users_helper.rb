@@ -6,4 +6,12 @@ def check_errors
   end
 end
 
-end 
+def current_user
+  @user= User.find(session[:user_id])
+end
+
+def current_user_house
+  current_user.house.id
+end
+
+end

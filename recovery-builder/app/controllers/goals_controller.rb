@@ -6,6 +6,8 @@ class GoalsController < ApplicationController
   end
 
   def create
+    binding.pry
+    raise params.inspect
   end
 
 end
