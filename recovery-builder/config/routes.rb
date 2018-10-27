@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :manager do
-    resources :houses 
+    resources :houses
   end
+
+  post '/manager/house/create' => 'manager/houses#create'
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
