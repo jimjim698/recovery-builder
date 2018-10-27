@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :houses
   end
 
+  resources :goals 
+
   post '/manager/houses/create' => 'manager/houses#create'
 
   get '/login' => 'sessions#new'
