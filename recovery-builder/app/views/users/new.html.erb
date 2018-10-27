@@ -1,16 +1,2 @@
 <h1>Sign Up </h1>
-<%if !@user.errors.blank?%>
-<%=@user.errors.full_messages.first%>
-<%end%>
-<br>
-<%=form_for @user do |f|%>
-<p><%=f.label :name%>
-<%=f.text_field :name%></p>
-<%=f.label "Choose a House"%>
-<%=collection_select(:house, :id, House.all, :id, :name, prompt: "Select House")%>
-<p><%=f.label "Check here if you are a Manager"%>
-<%=f.check_box :manager%></p>
-<p><%=f.label :password%>
-<%=f.password_field :password%></p>
-<p><%=f.submit%></p>
-<%end%>
+<%=render 'form'%>

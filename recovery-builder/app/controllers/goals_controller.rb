@@ -16,6 +16,10 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
   end 
 
+  def index 
+    @goals  = current_user.goals 
+  end 
+
 
   private
 
