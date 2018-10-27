@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  namespace :manager do
+    resources :houses 
+  end
+
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
