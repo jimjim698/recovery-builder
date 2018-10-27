@@ -5,9 +5,15 @@ class Manager::HousesController <ApplicationController
   end
 
   def create
-    raise params.inspect
+    @house = House.new(name:params[:name])
+    @house.save
+    redirect_to manager_houses_path
+
   end
 
+  def index
+    @houses = House.all
+  end 
 
 
 
