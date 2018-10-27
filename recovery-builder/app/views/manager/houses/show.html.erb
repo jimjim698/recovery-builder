@@ -1,1 +1,6 @@
 <h1><%=@house.name%></h1>
+<br>
+<h3>Current House Residents</h3>
+<%@house.users.each do |u|%>
+<p><h5><%=link_to u.name, user_path(u)%></h5></p>
+<%end%>

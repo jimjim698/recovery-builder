@@ -16,7 +16,7 @@ class Manager::HousesController <ApplicationController
   end
 
   def show
-    binding.pry
+
 
     @house = House.find(params[:id])
   end
