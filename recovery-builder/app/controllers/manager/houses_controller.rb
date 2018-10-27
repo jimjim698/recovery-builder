@@ -1,5 +1,5 @@
 class Manager::HousesController <ApplicationController
-    before_action :is_manager 
+    before_action :is_manager
   def new
   end
 
@@ -9,6 +9,8 @@ class Manager::HousesController <ApplicationController
   private
 
   def is_manager
-    current_user.manager
+    return head(:forbidden) unless current_user.manager
   end
+
+  
 end

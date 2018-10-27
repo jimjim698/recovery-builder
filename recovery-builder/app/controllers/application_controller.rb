@@ -5,5 +5,11 @@ class ApplicationController < ActionController::Base
 
 
   def home
-  end 
+  end
+
+
+  def current_user
+    
+    @user = User.find(session[:user_id])
+  end
 end
