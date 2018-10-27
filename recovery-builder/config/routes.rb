@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :houses
   end
 
-  post '/manager/house/create' => 'manager/houses#create'
+  post '/manager/houses/create' => 'manager/houses#create'
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'

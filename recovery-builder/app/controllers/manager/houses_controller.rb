@@ -5,8 +5,8 @@ class Manager::HousesController <ApplicationController
   end
 
   def create
-    raise params.inpsect
-  end 
+    raise params.inspect
+  end
 
 
 
