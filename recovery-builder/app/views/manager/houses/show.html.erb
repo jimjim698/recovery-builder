@@ -4,3 +4,10 @@
 <%@house.users.each do |u|%>
 <p><h5><%=link_to u.name, user_path(u)%></h5></p>
 <%end%>
+
+<br>
+<br>
+<br>
+<%@house.goals.each do |g|%>
+<%=link_to g.name, goal_path(g) %>
+<%end%>
