@@ -2,8 +2,12 @@
 <h1>Welcome <%=@user.name%>!</h1>
 <%=check_errors%>
 <br>
+<%if @user.house%>
 <h3>You are in <%=@user.house.name%></h3>
 <%=link_to 'Sign Out', logout_path, method: 'delete'%>
+<%else%>
+<h3>You have not been assigned to a house yet.</h3>
+<%end%>
 <br>
 <%if @user.manager%>
 <%=link_to 'Create a new house', new_manager_house_path%>
