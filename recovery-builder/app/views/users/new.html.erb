@@ -6,6 +6,8 @@
 <%=form_for @user do |f|%>
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
+<%=f.label "Choose a House"%>
+<%=collection_select(:house, :name, House.all, :name, :name, prompt: "Select House")%>
 <p><%=f.label "Check here if you are a Manager"%>
 <%=f.check_box :manager%></p>
 <p><%=f.label :password%>
