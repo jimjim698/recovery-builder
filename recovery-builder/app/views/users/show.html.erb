@@ -2,6 +2,7 @@
 <h1>Welcome <%=@user.name%>!</h1>
 <%=check_errors%>
 <br>
+<h3>You are in <%=@user.house.name%></h3>
 <%=link_to 'Sign Out', logout_path, method: 'delete'%>
 <br>
 <%if @user.manager%>
