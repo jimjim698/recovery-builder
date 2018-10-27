@@ -3,4 +3,7 @@
 <%=check_errors%>
 <br>
 <%=link_to 'Sign Out', logout_path, method: 'delete'%>
+<br>
+<%if @user.manager%>
 <%=link_to 'Create a new house', new_manager_house_path%>
+<%end%>
