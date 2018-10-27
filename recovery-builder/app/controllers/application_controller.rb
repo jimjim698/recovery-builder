@@ -9,7 +9,13 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    
+
     @user = User.find(session[:user_id])
   end
+
+  def is_manager
+    return head(:forbidden) unless current_user.manager
+
+  end
+  
 end
