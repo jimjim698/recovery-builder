@@ -9,15 +9,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= yield %>
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
           <%=link_to "Home", user_path(session[:user_id]), class:"navbar-brand"%>
-          <%=link_to "Sign Out", new_user_path, class:"navbar-brand"%>
+          <%=link_to "Create New Account", new_user_path, class:"navbar-brand"%>
           <%=link_to "Login", '/signin', class:"navbar-brand"%>
           </div>
-<%= yield %>
+
 
 </body>
 </html>
