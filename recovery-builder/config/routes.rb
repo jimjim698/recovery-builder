@@ -8,9 +8,12 @@ Rails.application.routes.draw do
     resources :houses
   end
 
-  resources :goals 
+  resources :goals
 
-  post '/manager/houses/create' => 'manager/houses#create'
+  get '/manager/houses/create' => 'manager/houses#create'
+
+  get 'auth/developer', :as=> 'developer_auth'
+  post 'auth/:provider/callback' => 'sessions#create'
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
