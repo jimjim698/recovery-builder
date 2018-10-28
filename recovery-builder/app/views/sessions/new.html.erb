@@ -1,7 +1,11 @@
+<div class="show">
+
 <h1>Sign in!</h1>
+
 
 <%=form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 <h2> Name: <%=text_field_tag :name%><br><br>
     Password: <%=password_field_tag :password%></h3><br>
     <%=submit_tag "Sign In"%>
     <%end%>
+  </div>
