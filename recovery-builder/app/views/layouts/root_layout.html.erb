@@ -14,7 +14,7 @@
           <div class="navbar-header">
 
           <%=link_to "Home", user_path(session[:user_id]), class:"navbar-brand"%>
-          <%=link_to "Sign Up", new_user_path, class:"navbar-brand"%>
+          <%=link_to "Sign Out", new_user_path, class:"navbar-brand"%>
           <%=link_to "Login", '/signin', class:"navbar-brand"%>
           </div>
 <%= yield %>

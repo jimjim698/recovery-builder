@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def home
+    render layout: "root_layout"
   end
 
 
