@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only=> :create
  layout 'sessions_layout'
@@ -6,10 +8,11 @@ class SessionsController < ApplicationController
 
   def create
     if params[:provider]
-      @user = User.find_or_create_by(:provider=> auth[:provider], :uid=> auth[:uid]) do |user|
-        @user.name = auth[:info][:name]
-        session[:user_id] = @user.id
+      @user = User.find_or_create_by(:uid=> auth[:uid], password_digest: SecureRandom.hex) do |user|
+        user.name = auth[:info][:name]
       end 
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
     @user = User.find_by(name: params[:name])
       if @user && @user.authenticate(params[:password])
@@ -18,7 +21,6 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path
     end
-    redirect_to user_path(@user)
   end
 end 
 
