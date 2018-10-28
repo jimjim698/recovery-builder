@@ -1,10 +1,11 @@
 
+<div class="show">
 <h1>Welcome <%=@user.name%>!</h1>
 <%=check_errors%>
 <br>
+<h1>You Currently Have <%=@user.points%> Points</h1>
 <%if @user.house%>
 <h3>You are in <%=@user.house.name%></h3>
-<%=link_to 'Sign Out', logout_path, method: 'delete'%>
 <%else%>
 <h3>You have not been assigned to a house yet.</h3>
 <%end%>
@@ -14,3 +15,4 @@
 <p><%=link_to 'Create New Goals', new_goal_path%></p>
 <%end%>
 <%=link_to "Gain Some Recovery Points!", goals_path%>
+</div>
