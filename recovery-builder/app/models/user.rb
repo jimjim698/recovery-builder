@@ -8,6 +8,27 @@ class User < ActiveRecord::Base
 
   def current_user
     @user = User.find(params[:user_id])
-  end 
+  end
+
+  #def self.mentors
+    #self.where("points > 10", "employed: true")
+  #end
+
+  def self.mentors
+    mentors_array = []
+    self.all.each do |m|
+      if m.employed == true && m.points > 10
+        mentors_array << m.name
+      end
+    end
+    self.where(name:mentors_array)
+  end
+
+  def self.employed
+    self.where(employed: true)
+  end
+  #t.boolean "employed",        default: false
+  #t.boolean "assignment_1",    default: false
+  #t.boolean "assignment_2",
 
 end
