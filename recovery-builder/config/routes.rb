@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
 
   get '/login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+  post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
 
