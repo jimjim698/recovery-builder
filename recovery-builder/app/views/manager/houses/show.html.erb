@@ -9,10 +9,6 @@
 <br>
 <br>
 <br>
-<%@house.goals.each do |g|%>
-<%=link_to g.name, goal_path(g) %>
-<%end%>
+<%=link_to "View Goals For This House", goals_path%>
+
 </div>
-
-
-<%=display_residents(@house)%>

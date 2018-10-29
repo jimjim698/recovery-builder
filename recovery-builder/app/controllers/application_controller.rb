@@ -17,8 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   def is_manager
-    current_user.manager || flash[:notice] = "You are not authorized to view this content"
+    if !current_user.manager
+       flash[:notice] = "You are not authorized to view this content"
     redirect_to unauthorized_path
+    end
   end
 
 end

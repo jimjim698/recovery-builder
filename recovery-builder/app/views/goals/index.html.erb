@@ -2,5 +2,5 @@
 <br>
 
 <%@goals.each do |g|%>
-<p>link_to g.name, goal_path(g)</p>
+<p><%=link_to g.name, goal_path(g)%></p>
 <%end%>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get  '/unauthorized' => 'application#unauthorized'
 
   resources :users
+  resources :completions 
 
   namespace :manager do
     resources :houses, only:[:new, :index, :show]

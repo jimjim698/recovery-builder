@@ -19,10 +19,11 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @completion = @goal.completions.build(user_id: session[:user_id])
   end
 
   def index
-    @goals  = current_user.goals
+    @goals  = current_user.house.goals
   end
 
 

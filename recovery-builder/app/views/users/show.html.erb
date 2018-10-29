@@ -1,13 +1,15 @@
 
 <div class="show">
-  <p><%=link_to "Update User Account", edit_user_path(@user)%></p>
-
-<h1>Welcome <%=@user.name%>!</h1>
+<h1><%=@user.name%></h1>
 <%=check_errors%>
 <br>
-<h1>You Currently Have <%=@user.points%> Points</h1>
+<%if !@user.manager%>
+<h1>Currently Has <%=@user.points%> Points</h1>
+<%else%>
+<h1>House Manager</h1>
+<%end%>
 <%if @user.house%>
-<h3>You are in <%=@user.house.name%></h3>
+<h3>Belongs To <%=@user.house.name%> House</h3>
 <%else%>
 <h3>You have not been assigned to a house yet.</h3>
 <%end%>

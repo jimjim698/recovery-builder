@@ -1,1 +1,7 @@
 <h1><%=@goal.name%></h1>
+
+<%=form_for @completion do |f|%>
+<%=f.hidden_field :user_id%>
+<%=f.hidden_field :goal_id%>
+<%=f.submit "Complete This Goal"%>
+<%end%>
