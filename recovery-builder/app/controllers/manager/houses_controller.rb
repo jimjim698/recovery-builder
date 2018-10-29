@@ -23,13 +23,4 @@ class Manager::HousesController <ApplicationController
   end
 
 
-
-  private
-
-  def is_manager
-    return head(:forbidden) unless current_user.manager
-
-  end
-
-
 end
