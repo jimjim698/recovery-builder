@@ -9,7 +9,9 @@ class SessionsController < ApplicationController
   def create
     if auth
       @user = User.find_or_create_by(:uid=> auth[:uid]) do |user|
+        user.password_digest ||= user.password_digest = SecureRandom.hex
         user.name = auth[:info][:name]
+        user.save
       end
       session[:user_id] = @user.id
       redirect_to user_path(@user)
