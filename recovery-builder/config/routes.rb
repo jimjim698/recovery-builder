@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   get '/manager/houses/create' => 'manager/houses#create'
 
-  get 'auth/developer', :as=> 'developer_auth'
-  get 'auth/github', :as=> 'github_auth'
-  post 'auth/:provider/callback' => 'sessions#create'
+
+  get '/auth/github', :as=> 'github_auth'
+  match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'

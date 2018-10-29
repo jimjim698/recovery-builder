@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:provider]
-      @user = User.find_or_create_by(:uid=> auth[:uid], password_digest: SecureRandom.hex) do |user|
+    if auth
+      @user = User.find_or_create_by(:uid=> auth[:uid]) do |user|
         user.name = auth[:info][:name]
-      end 
+      end
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -22,17 +22,17 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
-end 
+end
 
   def destroy
     session.delete :user_id
     redirect_to '/'
   end
 
-  private 
-  def auth 
+  private
+  def auth
     request.env["omniauth.auth"]
-  end 
+  end
 
 
 end
