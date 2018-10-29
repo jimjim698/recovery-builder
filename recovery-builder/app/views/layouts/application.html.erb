@@ -10,9 +10,14 @@
 </head>
 <body>
 
+
 <%= yield %>
 
-
+<div class = "show errors">
+  <% if flash[:message]%>
+<%=flash[:message]%>
+<%end%>
+</div>
 
 
 <br>
@@ -23,7 +28,7 @@
 
   <p>  <%=link_to "Home", user_path(session[:user_id]), class:"navbar-brand"%>
     <%=link_to "Sign Out", logout_path, class:"navbar-brand", method:"delete"%>
-    
+
     </p>
 </div>
 
