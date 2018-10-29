@@ -2,7 +2,7 @@
   <h1><%=@house.name%></h1>
 <br>
 <h3>Current House Residents</h3>
-<%@house.users.each do |u|%>
+<%@house.users.ordered_by_points.each do |u|%>
 <p><h5><%=link_to u.name, user_path(u)%>     has    <%=u.points%> points</h5></p>
 <%end%>
 

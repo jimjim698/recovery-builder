@@ -27,8 +27,10 @@ class User < ActiveRecord::Base
   def self.employed
     self.where(employed: true)
   end
-  #t.boolean "employed",        default: false
-  #t.boolean "assignment_1",    default: false
-  #t.boolean "assignment_2",
+
+  def self.ordered_by_points
+    self.order(points: :desc)
+  end
+
 
 end
