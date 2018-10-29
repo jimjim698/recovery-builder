@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'application#home'
+  get  '/unauthorized' => 'application#unauthorized'
 
   resources :users
 

@@ -1,5 +1,7 @@
 
 <div class="show">
+  <p><%=link_to "Update User Account", edit_user_path(@user)%></p>
+
 <h1>Welcome <%=@user.name%>!</h1>
 <%=check_errors%>
 <br>
@@ -10,10 +12,11 @@
 <h3>You have not been assigned to a house yet.</h3>
 <%end%>
 <br>
-<%if @user.manager%>
+<p><%=link_to "Update User Account", edit_user_path(@user)%></p>
+
+<%if current_user.manager%>
 <%=link_to 'Create a new house', new_manager_house_path%>
 <p><%=link_to 'Create New Goals', new_goal_path%></p>
-<p><%=link_to "Update User Account", edit_user_path(@user)%></p>
 <%else%>
 <%=link_to "Gain Some Recovery Points!", goals_path%>
 <%end%>

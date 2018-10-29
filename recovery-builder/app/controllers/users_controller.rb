@@ -4,7 +4,6 @@ layout 'root_layout', except:[:show, :edit]
 
   def new
     @user = User.new
-    render layout: "root_layout"
   end
 
   def create
@@ -32,7 +31,6 @@ layout 'root_layout', except:[:show, :edit]
     @user.house_id = params[:house][:id]
     @user.save
     redirect_to user_path(@user)
-
   end
 
 

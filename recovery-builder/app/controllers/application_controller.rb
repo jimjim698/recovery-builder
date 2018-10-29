@@ -8,15 +8,17 @@ class ApplicationController < ActionController::Base
     render layout: "root_layout"
   end
 
+  def unauthorized
+  end
+
 
   def current_user
-
-    @user = User.find(session[:user_id])
+    User.find(session[:user_id])
   end
 
   def is_manager
-    return head(:forbidden) unless current_user.manager
-
+    current_user.manager || flash[:notice] = "You are not authorized to view this content"
+    redirect_to unauthorized_path
   end
-  
+
 end
