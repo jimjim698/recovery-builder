@@ -3,7 +3,12 @@ class GoalsController < ApplicationController
   skip_before_action :is_manager, only:[:show, :index]
 
   def new
+    if current_user.house_id.nil?
+      flash[:notice] = "You must belong to a house before you can create goals"
+      redirect_to edit_user_path(session[:user_id])
+    else
     @goal = Goal.new
+  end
   end
 
   def create
@@ -14,11 +19,11 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
-  end 
+  end
 
-  def index 
-    @goals  = current_user.goals 
-  end 
+  def index
+    @goals  = current_user.goals
+  end
 
 
   private

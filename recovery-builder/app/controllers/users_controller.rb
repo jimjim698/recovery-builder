@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 before_action :is_manager, only:[:edit]
+layout 'root_layout', except:[:show, :edit]
+
   def new
     @user = User.new
+    render layout: "root_layout"
   end
 
   def create
@@ -10,27 +13,27 @@ before_action :is_manager, only:[:edit]
     if @user.save
     session[:user_id] = @user.id
     redirect_to user_path(@user)
-  else
+    else
     render :new
-  end
+    end
   end
 
   def show
     @user = User.find(params[:id])
   end
 
-  def edit 
+  def edit
     @user = User.find(params[:id])
-  end 
+  end
 
-  def update 
+  def update
     @user = User.find(params[:id])
     @user.update(user_params)
     @user.house_id = params[:house][:id]
-    @user.save 
+    @user.save
     redirect_to user_path(@user)
 
-  end 
+  end
 
 
 

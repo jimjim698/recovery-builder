@@ -18,6 +18,12 @@
    border: 1px solid red;
  }
 
+ .errors{
+   font_family: Courier;
+   color: red;
+   font-size: 20px;
+ }
+
 
 .footer {
     position: fixed;
@@ -32,5 +38,3 @@
 .show{
   text-align: center;
 }
-
-

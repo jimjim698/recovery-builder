@@ -1,6 +1,8 @@
-<%if !@user.errors.blank?%>
+<div class="errors"><%if !@user.errors.blank?%>
 <%=@user.errors.full_messages.first%>
-<%end%>
+<%elsif flash[:notice]%>
+<%=flash[:notice]%>
+<%end%></div>
 <br>
 <%=form_for @user do |f|%>
 <p><%=f.label :name%>

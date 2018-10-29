@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :manager do
-    resources :houses
+    resources :houses, only:[:new, :index, :show]
+
   end
 
+  post '/manager/houses/create'=> 'manager/houses#create'
   resources :goals
 
   get '/manager/houses/create' => 'manager/houses#create'
