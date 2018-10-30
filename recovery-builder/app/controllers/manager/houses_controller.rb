@@ -9,7 +9,6 @@ class Manager::HousesController <ApplicationController
     @house = House.new(name:params[:name])
     @house.save
     redirect_to manager_houses_path
-
   end
 
   def index
@@ -17,9 +16,8 @@ class Manager::HousesController <ApplicationController
   end
 
   def show
-
-
     @house = House.find(params[:id])
+    @mentors = @house.users.mentors
   end
 
 

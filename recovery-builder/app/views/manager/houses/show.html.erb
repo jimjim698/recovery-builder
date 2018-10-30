@@ -10,13 +10,13 @@
 <br>
 <br>
 <h3>House Mentors</h3>
-  <%@house.users.mentors.each do |m|%>
+  <%@mentors.each do |m|%>
 <%if !m.manager%>
-<p><h5><%=link_to m.name,user_path(m)%></p>
+<p><h5><%=link_to m.name,user_path(m)%></h5></p>
+  <%else%>
+  <p><h4><%=link_to m.name,user_path(m)%>- Manager </p></h4>
   <%end%>
   <%end%>
-
-
 <br>
 <br>
 <br>
