@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181028025423) do
+ActiveRecord::Schema.define(version: 20181030230645) do
 
   create_table "completions", force: :cascade do |t|
     t.integer  "goal_id"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20181028025423) do
     t.integer  "house_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "highlights", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "hightlights", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "houses", force: :cascade do |t|

@@ -3,13 +3,20 @@ Rails.application.routes.draw do
   root 'application#home'
   get  '/unauthorized' => 'application#unauthorized'
 
-  resources :users
+  resources :users do
+    resources :highlights
+  end
+
+  resources :highlights, only:[:new, :create, :show, :index]
+
   resources :completions
 
   namespace :manager do
     resources :houses, only:[:new, :index, :show]
 
   end
+
+
 
   post '/manager/houses/create'=> 'manager/houses#create'
   resources :goals
