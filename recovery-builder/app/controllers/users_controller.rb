@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :is_manager, only:[:edit]
+skip_before_action :authentication_required, only:[:new]
 layout 'root_layout', except:[:show, :edit, :unassigned]
 
   def new

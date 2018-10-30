@@ -2,6 +2,7 @@ require 'securerandom'
 
 class SessionsController < ApplicationController
   #skip_before_action :verify_authenticity_token, :only=> :create
+  skip_before_action :authentication_required, only:[:new]
  layout 'sessions_layout'
   def new
 

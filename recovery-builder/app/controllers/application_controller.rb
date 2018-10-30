@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :authentication_required
+  skip_before_action :authentication_required, only:[:home]
 
 
   def home
@@ -13,13 +15,23 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    @current_user ||= User.find(session[:user_id])
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def is_manager
     if !current_user.manager
        flash[:notice] = "You are not authorized to view this content"
     redirect_to unauthorized_path
+    end
+  end
+
+  def logged_in
+    !!current_user
+  end
+
+  def authentication_required
+    if !logged_in
+      redirect_to root_path
     end
   end
 
