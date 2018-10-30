@@ -19,6 +19,7 @@
 <%if current_user.manager%>
 <%=link_to 'Create a new house', new_manager_house_path%>
 <p><%=link_to 'Create New Goals', new_goal_path%></p>
+<p><%= link_to 'Assign New Resident Houses', unassigned_path%></p>
 <%else%>
 <%=link_to "Gain Some Recovery Points!", goals_path if current_user.house_id%>
 <%end%>

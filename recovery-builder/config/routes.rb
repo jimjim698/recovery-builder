@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get  '/unauthorized' => 'application#unauthorized'
 
   resources :users
-  resources :completions 
+  resources :completions
 
   namespace :manager do
     resources :houses, only:[:new, :index, :show]
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'unassigned' => 'users#unassigned'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

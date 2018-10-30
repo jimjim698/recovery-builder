@@ -11,7 +11,7 @@
 <%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House")%>
 <p><%=f.label "Check here if you are a Manager"%>
 <%=f.check_box :manager%></p>
-<p><%=f.label :password%>
-<%=f.password_field :password%></p>
+<p><%=f.label :password %>
+<%=f.password_field :password if @user == current_user%></p>
 <p><%=f.submit%></p>
 <%end%>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :is_manager, only:[:edit]
-layout 'root_layout', except:[:show, :edit]
+layout 'root_layout', except:[:show, :edit, :unassigned]
 
   def new
     @houses = House.all
@@ -8,7 +8,7 @@ layout 'root_layout', except:[:show, :edit]
   end
 
   def create
-    @houses = House.all 
+    @houses = House.all
     @user = User.new(user_params)
     @user.house_id = params[:house][:id]
     if @user.save
@@ -34,6 +34,10 @@ layout 'root_layout', except:[:show, :edit]
     @user.house_id = params[:house][:id]
     @user.save
     redirect_to user_path(@user)
+  end
+
+  def unassigned
+    @unassigned_users = User.house_not_assigned
   end
 
 

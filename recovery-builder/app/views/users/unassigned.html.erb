@@ -1,0 +1,10 @@
+<div class= "show">
+<h1>These Residents Still Need To Be Assigned A House</h1>
+
+<br>
+<br>
+
+<%@unassigned_users.each do |u|%>
+<h3><%=link_to u.name, edit_user_path(u)%></h3>
+<%end%>
+</div>
