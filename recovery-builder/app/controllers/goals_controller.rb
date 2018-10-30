@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.save
     redirect_to manager_house_path(@goal.house_id)
-  end
+end
 
   def show
     @goal = Goal.find(params[:id])

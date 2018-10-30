@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   def self.mentors
     mentors_array = []
     self.all.each do |m|
-      if m.employed == true && m.points > 10
+      if m.employed == true && m.points > 49
         mentors_array << m.name
       end
     end
-    self.where(name:mentors_array)
+    self.where(name:mentors_array).order(points: :desc)
   end
 
   def self.employed

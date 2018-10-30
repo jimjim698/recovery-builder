@@ -3,8 +3,19 @@
 <br>
 <h3>Current House Residents</h3>
 <%@house.users.ordered_by_points.each do |u|%>
+<%if !u.manager%>
 <p><h5><%=link_to u.name, user_path(u)%>     has    <%=u.points%> points</h5></p>
 <%end%>
+<%end%>
+<br>
+<br>
+<h3>House Mentors</h3>
+  <%@house.users.mentors.each do |m|%>
+<%if !m.manager%>
+<p><h5><%=link_to m.name,user_path(m)%></p>
+  <%end%>
+  <%end%>
+
 
 <br>
 <br>

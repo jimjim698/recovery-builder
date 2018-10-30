@@ -4,13 +4,13 @@ class CompletionsController < ApplicationController
     completion = Completion.create(completion_params)
     message = completion.complete_goal
     redirect_to user_path(session[:user_id]), flash: {message: message}
-  end
+end
 
 
   private
 
   def completion_params
     params.require(:completion).permit(:user_id, :goal_id)
-  end 
+  end
 
 end

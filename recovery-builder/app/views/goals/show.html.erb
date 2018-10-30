@@ -1,7 +1,9 @@
+<div class= "show">
 <h1><%=@goal.name%></h1>
-
+<h2>This Goal is worth <%=@goal.point_value%> points</h2>
+<br>
 <%=form_for @completion do |f|%>
 <%=f.hidden_field :user_id%>
 <%=f.hidden_field :goal_id%>
 <%=f.submit "Complete This Goal"%>
-<%end%>
+<%end%></div>
