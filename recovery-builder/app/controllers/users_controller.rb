@@ -3,10 +3,12 @@ before_action :is_manager, only:[:edit]
 layout 'root_layout', except:[:show, :edit]
 
   def new
+    @houses = House.all
     @user = User.new
   end
 
   def create
+    @houses = House.all 
     @user = User.new(user_params)
     @user.house_id = params[:house][:id]
     if @user.save
@@ -22,6 +24,7 @@ layout 'root_layout', except:[:show, :edit]
   end
 
   def edit
+    @houses = House.all
     @user = User.find(params[:id])
   end
 

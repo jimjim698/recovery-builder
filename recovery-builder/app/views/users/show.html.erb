@@ -20,7 +20,9 @@
 <%=link_to 'Create a new house', new_manager_house_path%>
 <p><%=link_to 'Create New Goals', new_goal_path%></p>
 <%else%>
-<%=link_to "Gain Some Recovery Points!", goals_path%>
+<%=link_to "Gain Some Recovery Points!", goals_path if current_user.house_id%>
 <%end%>
-<p><%=link_to "View Your House", manager_house_path(current_user.house_id)%></p>
+<p><%=link_to "View Your House", manager_house_path(current_user.house_id) if current_user.house_id%></p>
+
+
 </div>

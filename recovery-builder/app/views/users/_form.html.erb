@@ -8,7 +8,7 @@
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
 <%=f.label "Choose a House"%>
-<%=collection_select(:house, :id, House.all, :id, :name, prompt: "Select House")%>
+<%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House")%>
 <p><%=f.label "Check here if you are a Manager"%>
 <%=f.check_box :manager%></p>
 <p><%=f.label :password%>

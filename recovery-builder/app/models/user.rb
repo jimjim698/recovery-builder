@@ -32,5 +32,9 @@ class User < ActiveRecord::Base
     self.order(points: :desc)
   end
 
+  def self.house_not_assigned
+    self.where(house_id: nil)
+  end
+
 
 end
