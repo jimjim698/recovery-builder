@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :goals, through: :completions
   has_many :highlights
 
-  def current_user
-    @user = User.find(params[:user_id])
-  end
+  #def current_user
+    #@user = User.find(params[:user_id])
+  #end
 
   #def self.mentors
     #self.where("points > 10", "employed: true")
