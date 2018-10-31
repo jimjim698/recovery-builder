@@ -14,19 +14,25 @@
 <h3>You have not been assigned to a house yet.</h3>
 <%end%>
 <br>
+<div class="alert alert-dismissible alert-danger">
 <p><%=link_to "Update User Account", edit_user_path(@user)%></p>
 
 <%if current_user.manager%>
 <%=link_to 'Create a new house', new_manager_house_path%>
 <p><%=link_to 'Create New Goals', new_goal_path%></p>
 <p><%= link_to 'Assign New Resident Houses', unassigned_path%></p>
-<p><%= link_to "View All Highlights", highlights_path%></p>
+
 <%else%>
 <%=link_to "Gain Some Recovery Points!", goals_path if current_user.house_id%>
-<p><%=link_to "Submit Daily Highlight", new_highlight_path if current_user == @user_show%></p>
-<p><%=link_to "View Highlights for #{@user_show.name}", user_highlights_path(@user_show)%></p>
 <%end%>
+<p><%=link_to "View Highlights for #{@user_show.name}", user_highlights_path(@user_show)%></p>
+<p><%=link_to "Submit Daily Highlight", new_highlight_path if current_user == @user_show%></p>
+<p><%= link_to "View All Highlights", highlights_path%></p>
 <p><%=link_to "View Your House", manager_house_path(current_user.house_id) if current_user.house_id%></p>
+
+
+
+</div>
 
 
 </div>
