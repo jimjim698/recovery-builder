@@ -22,6 +22,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
 
   def show
     @user = User.find(params[:id])
+    @user_show = User.find(params[:id])
   end
 
   def edit

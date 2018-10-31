@@ -7,12 +7,13 @@ class HighlightsController < ApplicationController
 
   def create
     @highlight = Highlight.create(highlight_params)
-    redirect_to highlights_path 
+    redirect_to highlights_path
   end
 
   def index
     if params[:user_id]
-    @highlights = User.find(params[:user_id]).highlights
+      @user = User.find(params[:user_id])
+      @highlights = @user.highlights
   else
     @highlights = Highlight.all
   end

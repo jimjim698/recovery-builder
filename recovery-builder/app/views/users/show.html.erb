@@ -22,6 +22,7 @@
 <p><%= link_to 'Assign New Resident Houses', unassigned_path%></p>
 <%else%>
 <%=link_to "Gain Some Recovery Points!", goals_path if current_user.house_id%>
+<p><%=link_to "Submit Daily Highlight", new_highlight_path if current_user.id == @user_show%></p>
 <%end%>
 <p><%=link_to "View Your House", manager_house_path(current_user.house_id) if current_user.house_id%></p>
 

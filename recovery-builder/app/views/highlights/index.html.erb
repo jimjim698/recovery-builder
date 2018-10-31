@@ -1,3 +1,9 @@
+<%if @user%>
+<h1>Highlights For <%=@user.name%></h1>
+<%else%>
+<h1>All Highlights</h1>
+<%end%>
+
 <%@highlights.each do |h|%>
-<p><%=h.created_at.strftime("%B %d %Y") %> - <%= h.content%></p>
+<p><%=h.created_at.strftime("%B %d, %Y") %> - <%= h.content%></p>
 <%end%>
