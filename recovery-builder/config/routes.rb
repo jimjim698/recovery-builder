@@ -4,23 +4,12 @@ Rails.application.routes.draw do
   get  '/unauthorized' => 'application#unauthorized'
 
   resources :users do
-    resources :highlights
+    resources :highlights, only:[:show, :index, :new, :create]
   end
 
-  resources :highlights, only:[:new, :create, :show, :index]
-
+  resources :highlights, only:[:show, :index]
   resources :completions
-
-
   resources :houses
-
-
-
-  post '/manager/houses/create'=> 'manager/houses#create'
-  resources :goals
-
-  get '/manager/houses/create' => 'manager/houses#create'
-
 
   get '/auth/github', :as=> 'github_auth'
   match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
