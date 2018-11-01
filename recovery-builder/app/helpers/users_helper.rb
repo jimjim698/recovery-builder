@@ -10,7 +10,7 @@ end
 #  @user= User.find(session[:user_id])
 # end
 def current_user_house
-  current_user.house.id
+  current_user.house
 end
 
 def this_current_user
@@ -19,7 +19,7 @@ def this_current_user
 
   def correct_view
     current_user_house && this_current_user
-  end 
+  end
 
 
 end
