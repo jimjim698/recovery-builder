@@ -16,6 +16,10 @@ end
 def this_current_user
   current_user == @user
   end
-  
+
+  def correct_view
+    current_user_house && this_current_user
+  end 
+
 
 end
