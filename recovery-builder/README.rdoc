@@ -1,28 +1,18 @@
-== README
+#Recovery Builder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Recovery Builder is an application for Sober Living Houses to track
+resident progress. It has a point system where points can be earned by completing
+recovery related activities and service work.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Usage
+
+To use this app, clone and run  'bundle install' and 'rake db:migrate'  Next run 'rails s'
+ and go to  http://localhost:3000 in your browser.
+
+
+###Contributing Bug reports and pull requests are welcome on
+GitHub at https://github.com/jimjim698/recovery-builder.
+
+
+####License The gem is available as open source under the terms of the MIT License.
