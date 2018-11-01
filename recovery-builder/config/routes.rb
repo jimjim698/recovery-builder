@@ -11,10 +11,8 @@ Rails.application.routes.draw do
 
   resources :completions
 
-  namespace :manager do
-    resources :houses, only:[:new, :index, :show]
 
-  end
+  resources :houses
 
 
 
