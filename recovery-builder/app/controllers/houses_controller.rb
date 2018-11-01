@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
       before_action :is_manager
-      skip_before_action :is_manager, only:[:show]
+      skip_before_action :is_manager, only:[:show, :index]
     def new
       @house = House.new
     end
