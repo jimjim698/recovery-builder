@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   resources :highlights, only:[:show, :index]
   resources :completions, only:[:create]
-  resources :houses, only:[:new,:create,:index,:show]
-  resources :goals, only:[:new, :create, :show, :index] 
+
+  resources :houses, only:[:new,:create,:index,:show] do
+    resources :highlights, only:[:index]
+  end
+  resources :goals, only:[:new, :create, :show, :index]
 
   get '/auth/github', :as=> 'github_auth'
   match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
