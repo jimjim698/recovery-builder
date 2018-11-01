@@ -25,8 +25,8 @@
 <%else%>
 <%=link_to "Gain Some Recovery Points!", goals_path if current_user.house_id%>
 <%end%>
-<p><%=link_to "View Highlights for #{@user_show.name}", user_highlights_path(@user_show)%></p>
-<p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if current_user == @user_show%></p>
+<p><%=link_to "View Highlights for #{@user.name}", user_highlights_path(@user)%></p>
+<p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if current_user == @user%></p>
 <p><%= link_to "View All Highlights", highlights_path%></p>
 <p><%=link_to "View Your House", house_path(current_user.house_id) if current_user.house_id%></p>
 
