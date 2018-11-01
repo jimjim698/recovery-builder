@@ -4,5 +4,4 @@ class Goal < ActiveRecord::Base
   belongs_to :house
   has_many :completions
   has_many :users, through: :completions
-  belongs_to :house, through: :users 
-end
+  end
