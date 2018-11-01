@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :highlights, only:[:show, :index]
-  resources :completions
-  resources :houses
+  resources :completions, only:[:create]
+  resources :houses, only:[:new,:create,:index,:show]
 
   get '/auth/github', :as=> 'github_auth'
   match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
