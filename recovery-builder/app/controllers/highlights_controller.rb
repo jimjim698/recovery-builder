@@ -9,6 +9,9 @@ class HighlightsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @highlight = Highlight.create(highlight_params)
+    @highlight.user_id = @user.id
+    @highlight.save 
+
     redirect_to user_highlights_path(@user)
   end
 
@@ -26,7 +29,7 @@ class HighlightsController < ApplicationController
 private
 
   def highlight_params
-    params.require(:highlight).permit(:content, :user_id)
+    params.require(:highlight).permit(:content,:user_id)
   end
 
 
