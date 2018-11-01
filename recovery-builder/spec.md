@@ -8,7 +8,7 @@ User has_many completions, User has_many highlights. Also, a User has_many goals
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 
-A user belongs_to a House. Highlights also belongs to a User.
+A user belongs_to a House. Highlight also belongs_to a User.
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
 
@@ -26,7 +26,9 @@ Goals have a point value that updates User.points.
 
 User, Goal and House models require a name. Goal model requires a point value. House and User must have unique names.
 
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+
+Class level Active Record scope method to find Users who have a job and more than fifty points. /mentors will display all of these residents and the houses they belong to.
 
 
 
@@ -55,10 +57,12 @@ There is a nested Highlight resource for Users that includes index. Theres a nes
 
 Nested Highlight resource for Users includes new and create
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
+
+Sign up form displays validation errors and renders the page again if password is not included, name is not included or name is repeated.
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [X] The application is pretty DRY - Dried up a lot of original code.
+- [x] Limited logic in controllers - Moved much of the view logic to view helper.
+- [x] Views use helper methods if appropriate - Used several view helpers.
+- [x] Views use partials if appropriate - partials used for creating and editing a User.
