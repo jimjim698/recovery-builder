@@ -41,6 +41,11 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
     @unassigned_users = User.house_not_assigned
   end
 
+  def mentors
+    @mentors = User.mentors
+    render layout: 'sessions_layout'
+  end
+
 
 
   private
