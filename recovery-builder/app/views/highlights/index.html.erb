@@ -5,5 +5,5 @@
 <%end%>
 
 <%@highlights.each do |h|%>
-<p><%=h.created_at.strftime("%B %d, %Y") %> - <%= h.content%> (<%=h.user.name%>)</p>
+<p><%=h.created_at.strftime("%B %d, %Y") %> - <%= h.content%> (<%=h.user.name if h.user%>)</p>
 <%end%>
