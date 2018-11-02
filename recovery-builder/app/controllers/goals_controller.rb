@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     @goal.save
+    flash[:message] = "New Goal Has Been Added"
     redirect_to house_path(@goal.house_id)
 end
 
