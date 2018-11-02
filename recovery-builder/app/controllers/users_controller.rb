@@ -27,6 +27,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
   def edit
     @houses = House.all
     @user = User.find(params[:id])
+    @user.save
   end
 
   def update
