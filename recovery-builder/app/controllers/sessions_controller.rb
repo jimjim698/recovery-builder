@@ -1,6 +1,5 @@
 
 class SessionsController < ApplicationController
-  #skip_before_action :verify_authenticity_token, :only=> :create
   skip_before_action :authentication_required
  layout 'sessions_layout'
   def new
@@ -23,7 +22,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
     else
-      redirect_to login_path
+      flash[:notice] = "Invalid Login Information"
+      render :new
     end
   end
 end
