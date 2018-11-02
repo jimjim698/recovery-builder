@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
     else
       flash[:notice] = "Invalid Login Information"
-      render :new
+      redirect_to login_path
     end
   end
 end
