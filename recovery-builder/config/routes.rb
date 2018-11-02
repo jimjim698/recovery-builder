@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  #delete '/:user_id/delete' => 'user#destroy'
   get 'unassigned' => 'users#unassigned'
   get '/mentors' => 'users#mentors'
 

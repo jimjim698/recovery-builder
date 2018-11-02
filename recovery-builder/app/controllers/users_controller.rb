@@ -46,6 +46,11 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
     render layout: 'sessions_layout'
   end
 
+  def destroy
+    @user = User.find(params[:id]).destroy
+    redirect_to house_path(current_user)
+  end
+
 
 
   private
