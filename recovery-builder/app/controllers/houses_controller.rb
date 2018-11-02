@@ -17,7 +17,6 @@ class HousesController < ApplicationController
 
     def show
       @house = House.find(params[:id])
-      @mentors = @house.users.mentors
     end
 
     private

@@ -5,18 +5,11 @@
 <%@house.users.ordered_by_points.each do |u|%>
 <%if !u.manager%>
 <p><h5><%=link_to u.name, user_path(u)%>     has    <%=u.points%> points</h5></p>
-<%end%>
+  <%end%>
 <%end%>
 <br>
 <br>
-<h3>House Mentors</h3>
-  <%@mentors.each do |m|%>
-<%if !m.manager%>
-<p><h5><%=link_to m.name,user_path(m)%></h5></p>
-  <%else%>
-  <p><h4><%=link_to m.name,user_path(m)%>- Manager </p></h4>
-  <%end%>
-  <%end%>
+
 <br>
 <br>
 <br>
