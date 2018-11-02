@@ -37,5 +37,11 @@ class User < ActiveRecord::Base
     self.where(house_id: nil)
   end
 
+  def omni
+      self.password_digest ||= user.password_digest = SecureRandom.hex
+      self.name = auth[:info][:name]
+      self.save
+    end
+
 
 end
