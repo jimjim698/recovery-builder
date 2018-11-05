@@ -1,39 +1,39 @@
 
 <div class="show">
-<h1><%=@user.name%></h1>
-<%=check_errors%>
-<br>
-<%if !@user.manager%>
-<h1>Currently Has <%=@user.points%> Points</h1>
-<%else%>
-<h1>House Manager</h1>
-<%end%>
-<%if @user.house%>
-<h3>Belongs To <%=@user.house.name%> House</h3>
-<%else%>
-<h3>You have not been assigned to a house yet.</h3>
-<%end%>
-<br>
-<div class="alert alert-dismissible alert-danger">
+  <h1><%=@user.name%></h1>
+  <%=check_errors%>
+  <br>
+  <%if !@user.manager%>
+  <h1>Currently Has <%=@user.points%> Points</h1>
+  <%else%>
+  <h1>House Manager</h1>
+  <%end%>
+  <%if @user.house%>
+  <h3>Belongs To <%=@user.house.name%> House</h3>
+  <%else%>
+  <h3>You have not been assigned to a house yet.</h3>
+  <%end%>
+  <br>
+  <div class="alert alert-dismissible alert-danger">
 
 
-<%if current_user.manager%>
-<%=link_to 'Create a new house', new_house_path%>
-<p><%=link_to 'Create New Goals', new_goal_path%></p>
-<p><%= link_to 'Assign New Resident Houses', unassigned_path%></p>
-<p><%=link_to "Update User Account", edit_user_path(@user)%></p>
+    <%if current_user.manager%>
+    <%=link_to 'Create a new house', new_house_path%>
+    <p><%=link_to 'Create New Goals', new_goal_path%></p>
+    <p><%= link_to 'Assign New Resident Houses', unassigned_path%></p>
+    <p><%=link_to "Update User Account", edit_user_path(@user)%></p>
 
-<%else%>
-<%=link_to "Gain Some Recovery Points!", goals_path if correct_view%>
-<%end%>
-<p><%=link_to "View Highlights for #{@user.name}", user_highlights_path(@user)%></p>
-<p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if this_current_user%></p>
-<p><%= link_to "View All Highlights", highlights_path%></p>
-<p><%=link_to "View Your House", house_path(current_user.house_id) if correct_view%></p>
+    <%else%>
+    <%=link_to "Gain Some Recovery Points!", goals_path if correct_view%>
+    <%end%>
+    <p><%=link_to "View Highlights for #{@user.name}", user_highlights_path(@user)%></p>
+    <p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if this_current_user%></p>
+    <p><%= link_to "View All Highlights", highlights_path%></p>
+    <p><%=link_to "View Your House", house_path(current_user.house_id) if correct_view%></p>
 
 
 
-</div>
+  </div>
 
 
 </div>

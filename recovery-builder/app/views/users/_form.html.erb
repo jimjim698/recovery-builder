@@ -1,21 +1,23 @@
-<div class="errors"><%if !@user.errors.blank?%>
-<%=@user.errors.full_messages.first%>
-<%elsif flash[:notice]%>
-<%=flash[:notice]%>
-<%end%></div>
-<br>
-<%=form_for @user do |f|%>
-<p><%=f.label :name%>
-<%=f.text_field :name%></p>
-<%=f.label "Choose a House"%>
-<%if @user.house%>
-<%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House" , selected: @user.house.id)%>
-<%else%>
-<%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House")%>
-<%end%>
-<p><%=f.label "Check here if you are a Manager"%>
-<%=f.check_box :manager%></p>
-<p><%=f.label :password %>
-<%=f.password_field :password, value: :password%></p>
-<p><%=f.submit%></p>
-<%end%>
+<div class="errors">
+    <%if !@user.errors.blank?%>
+  <%=@user.errors.full_messages.first%>
+    <%elsif flash[:notice]%>
+  <%=flash[:notice]%>
+  <%end%></div>
+  <br>
+  <%=form_for @user do |f|%>
+  <p><%=f.label :name%>
+  <%=f.text_field :name%></p>
+  <%=f.label "Choose a House"%>
+    <%if @user.house%>
+    <%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House" , selected: @user.house.id)%>
+    <%else%>
+    <%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House")%>
+    <%end%>
+  <p><%=f.label "Check here if you are a Manager"%>
+  <%=f.check_box :manager%></p>
+  <p><%=f.label :password %>
+  <%=f.password_field :password, value: :password%></p>
+  <p><%=f.submit%></p>
+  <%end%>
+</div>
