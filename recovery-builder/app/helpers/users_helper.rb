@@ -10,12 +10,12 @@ def current_user_house
   current_user.house
 end
 
-def this_current_user
-  current_user == @user
+def this_current_user(user)
+  current_user == user
   end
 
-  def correct_view
-    current_user_house && this_current_user
+  def correct_view(user)
+    current_user_house && this_current_user(user)
   end
 
 

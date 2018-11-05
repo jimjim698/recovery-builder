@@ -27,9 +27,9 @@
     <%=link_to "Gain Some Recovery Points!", goals_path if correct_view%>
     <%end%>
     <p><%=link_to "View Highlights for #{@user.name}", user_highlights_path(@user)%></p>
-    <p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if this_current_user%></p>
+    <p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if this_current_user(@user)%></p>
     <p><%= link_to "View All Highlights", highlights_path%></p>
-    <p><%=link_to "View Your House", house_path(current_user.house_id) if correct_view%></p>
+    <p><%=link_to "View Your House", house_path(current_user.house_id) if correct_view(@user)%></p>
 
 
 

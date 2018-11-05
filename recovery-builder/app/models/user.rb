@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   def self.mentors
     mentors_array = []
     self.all.each do |m|
-      if m.employed == true && m.points > 49
+      if m.employed == true && m.points > 100
         mentors_array << m.name
       end
     end
