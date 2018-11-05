@@ -24,7 +24,7 @@
     <p><%=link_to "Update User Account", edit_user_path(@user)%></p>
 
     <%else%>
-    <%=link_to "Gain Some Recovery Points!", goals_path if correct_view%>
+    <%=link_to "Gain Some Recovery Points!", goals_path if correct_view(@user)%>
     <%end%>
     <p><%=link_to "View Highlights for #{@user.name}", user_highlights_path(@user)%></p>
     <p><%=link_to "Submit Daily Highlight", new_user_highlight_path(current_user) if this_current_user(@user)%></p>

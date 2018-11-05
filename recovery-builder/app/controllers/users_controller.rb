@@ -11,7 +11,6 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
   def create
     @houses = House.all
     @user = User.new(user_params)
-    @user.house_id = params[:house][:id]
     if @user.save
     session[:user_id] = @user.id
     redirect_to user_path(@user)
@@ -33,7 +32,6 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    @user.house_id = params[:house][:id]
     @user.save
     redirect_to user_path(@user)
   end

@@ -10,9 +10,9 @@
   <%=f.text_field :name%></p>
   <%=f.label "Choose a House"%>
     <%if @user.house%>
-    <%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House" , selected: @user.house.id)%>
+    <%=collection_select(:user, :house_id, @houses, :id, :name, prompt: "Select House" , selected: @user.house.id)%>
     <%else%>
-    <%=collection_select(:house, :id, @houses, :id, :name, prompt: "Select House")%>
+    <%=collection_select(:user, :house_id, @houses, :id, :name, prompt: "Select House")%>
     <%end%>
   <p><%=f.label "Check here if you are a Manager"%>
   <%=f.check_box :manager%></p>
