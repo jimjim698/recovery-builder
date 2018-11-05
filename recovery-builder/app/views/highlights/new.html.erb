@@ -2,6 +2,7 @@
 
 <%=form_for [@user, @highlight] do |f|%>
 <%=f.text_area :content %>
+<%=f.hidden_field :completed%> 
 <br>
 <p><%=f.submit%></p>
 <%end%>

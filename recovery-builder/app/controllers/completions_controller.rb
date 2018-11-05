@@ -10,7 +10,7 @@ end
   private
 
   def completion_params
-    params.require(:completion).permit(:user_id, :goal_id)
+    params.require(:completion).permit(:user_id, :goal_id, :completed)
   end
 
 end
