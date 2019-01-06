@@ -1,8 +1,10 @@
 
 <div class="show">
-  <h1><%=@user.name%></h1>
+  <h1 id="username"><%=@user.name%></h1>
   <%=check_errors%>
   <br>
+  <button id="next" data-id="<%=@user.id%>">View Next Resident</button>
+
   <%if !@user.manager%>
   <h1>Currently Has <%=@user.points%> Points</h1>
   <%else%>
@@ -36,6 +38,6 @@
 
   </div>
 
-<button id="next">View Next Resident</button>
+<button id="next" data-id="<%=@user.id%>">View Next Resident</button>
 
 </div>
