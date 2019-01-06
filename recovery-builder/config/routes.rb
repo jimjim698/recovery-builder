@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   #delete '/:user_id/delete' => 'user#destroy'
   get 'unassigned' => 'users#unassigned'
   get '/mentors' => 'users#mentors'
+  get '/users/:id/bio'=> 'users#bio'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

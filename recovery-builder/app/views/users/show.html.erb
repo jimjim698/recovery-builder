@@ -3,8 +3,6 @@
   <h1 id="username"><%=@user.name%></h1>
   <%=check_errors%>
   <br>
-  <button id="next" data-id="<%=@user.id%>">View Next Resident</button>
-
   <%if !@user.manager%>
   <h1>Currently Has <%=@user.points%> Points</h1>
   <%else%>
@@ -38,6 +36,6 @@
 
   </div>
 
-<button id="next" data-id="<%=@user.id%>">View Next Resident</button>
 
+<a href="/users/<%=@user.id%>/bio"> View Bio Page </a>
 </div>

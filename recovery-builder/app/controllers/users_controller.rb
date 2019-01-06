@@ -54,12 +54,16 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
     redirect_to house_path(current_user)
   end
 
+  def bio
+    @user = User.find(params[:id])
+  end 
+
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :manager, :house_id)
+    params.require(:user).permit(:name, :password, :manager, :house_id, :bio)
   end
 
 end

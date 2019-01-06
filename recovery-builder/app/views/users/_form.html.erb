@@ -15,7 +15,9 @@
     <%=collection_select(:user, :house_id, @houses, :id, :name, prompt: "Select House")%>
     <%end%>
   <p><%=f.label "Check here if you are a Manager"%>
-  <%=f.check_box :manager%></p>
+ <%=f.check_box :manager%></p>
+ <p>Please add a short bio</p>
+  <%=f.text_area :bio%><br><br>
   <p><%=f.label :password %>
   <%=f.password_field :password, value: :password%></p>
   <p><%=f.submit%></p>

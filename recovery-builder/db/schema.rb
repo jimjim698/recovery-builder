@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181030230645) do
+ActiveRecord::Schema.define(version: 20190106074100) do
 
   create_table "completions", force: :cascade do |t|
     t.integer  "goal_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20181030230645) do
     t.integer "points",          default: 0
     t.string  "password_digest"
     t.string  "uid"
+    t.text    "bio"
   end
 
 end
