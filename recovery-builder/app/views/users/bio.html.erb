@@ -1,8 +1,11 @@
 
 <div class="show">
-<h1><%=@user.name%><br></h1>
+<h1 id="username"><%=@user.name%><br></h1>
 
 
-<%=@user.bio%>
+<p id="userbio"><%=@user.bio%><p>
+  <a href="#" class="next" data-id="<%=@user.id%>">View Next Resident Bio</a>
+
 </div>
+
 <br><br><br>
