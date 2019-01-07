@@ -14,7 +14,7 @@ $(function(){
     e.preventDefault()
   })
 
-  
+
 $('.mentors').on('click', function(e){
   $("#mentors").empty()
   $.getJSON(this.href, function(data){
@@ -24,6 +24,18 @@ $('.mentors').on('click', function(e){
     })
   })
   e.preventDefault()
+})
+
+$('#next').on('click', function(e){
+  var nextId = parseInt($('#next').attr("data-id")) + 1;
+  $.getJSON("/users/" + nextId + ".json", function(data){
+    $("#username").text(data["name"])
+    $("#userbio").text(data["bio"])
+    $('#next').attr("data-id", nextId)
+
+
+})
+e.preventDefault()
 })
 
 
