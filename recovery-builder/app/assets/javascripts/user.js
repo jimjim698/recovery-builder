@@ -38,6 +38,22 @@ $('#next').on('click', function(e){
 e.preventDefault()
 })
 
+$("#new_highlight").on('submit', function(e){
+  var $highlight= $("#highlight_content").val()
+  var $authenticity_token = $("input[name='authenticity_token']").val()
+  data = {
+    authenticity_token: $authenticity_token,
+    'highlight': {
+      'content': $highlight
+    }
+  }
+  $.post(this.action, data).done(function(response){
+    $('#created_highlights ul').append('<p><h3>' + response.content + '</h3><p>')
+    console.log(response.content)
+  })
+
+  e.preventDefault()
+})
 
 
 

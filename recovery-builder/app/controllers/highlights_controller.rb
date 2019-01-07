@@ -11,7 +11,11 @@ class HighlightsController < ApplicationController
     @highlight = Highlight.create(highlight_params)
     @highlight.user_id = @user.id
     @highlight.save
-    redirect_to user_highlights_path(@user)
+    respond_to do |f|
+      f.json { render json: @highlight}
+      f.html {redirect_to user_highlights_path(@user)}
+    end
+
   end
 
   def index
