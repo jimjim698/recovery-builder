@@ -1,6 +1,6 @@
 <%if @user%>
 <h1>Highlights For <%=@user.name%></h1>
-<a href="#" class="load_highlights" id = <%=@user.id%>>Load Highlights</a>
+<a href="/users/<%=@user.id%>/highlights" class="load_highlights" id = <%=@user.id%>>Load Highlights</a>
 <%else%>
 <h1>All Highlights</h1>
 <%end%>
