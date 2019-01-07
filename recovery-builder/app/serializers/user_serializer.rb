@@ -1,4 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :bio, :house
-  belongs_to :house 
+  attributes :id, :name, :bio, :house, :highlights
+  belongs_to :house
+  has_many :highlights
 end

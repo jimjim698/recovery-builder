@@ -1,5 +1,6 @@
 <%if @user%>
 <h1>Highlights For <%=@user.name%></h1>
+<a href="#" class="load_highlights" id = <%=@user.id%>>Load Highlights</a>
 <%else%>
 <h1>All Highlights</h1>
 <%end%>
@@ -7,3 +8,6 @@
 <%@highlights.each do |h|%>
 <p><%=h.created_at.strftime("%B %d, %Y") %> - <%= h.content%> (<%=h.user.name if h.user%>)</p>
 <%end%>
+<div id="highlights">
+
+</div>

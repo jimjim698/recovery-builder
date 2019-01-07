@@ -10,4 +10,18 @@ $('.mentors').on('click', function(e){
   e.preventDefault()
 })
 
+$(".load_highlights").on('click', function(e){
+  $('#highlights').empty()
+  $.getJSON(this.href, function(data){
+    console.log(data.highlights)
+    data.highlights.forEach(function(highlight){
+      $('#highlights').append('<p>' + highlight["content"] +  '</p>')
+    })
+  })
+  e.preventDefault()
+})
+
+
+
+
 })
