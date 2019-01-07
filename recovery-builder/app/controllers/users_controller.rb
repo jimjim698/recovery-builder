@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :is_manager, only:[:edit]
 skip_before_action :authentication_required, only:[:new, :create]
-layout 'root_layout', except:[:show, :edit, :unassigned]
+layout 'root_layout', except:[:show, :edit, :unassigned, :bio]
 
   def new
     @houses = House.all
@@ -46,7 +46,11 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
 
   def mentors
     @mentors = User.mentors
-    render layout: 'sessions_layout'
+    respond_to do |f|
+      f.html{render layout: 'sessions_layout'}
+      f.json {render :json=> @mentors}
+    end 
+    #render layout: 'sessions_layout'
   end
 
   def destroy
@@ -56,7 +60,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned]
 
   def bio
     @user = User.find(params[:id])
-  end 
+  end
 
 
 
