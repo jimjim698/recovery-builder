@@ -4,6 +4,24 @@
 
 
 <h3><p id="userbio"><%=@user.bio%><%=@user.bio%><p></h3>
-<a href="#" class="next" ata-id="<%=@user.id%>">View Next Resident Bio</a>
+<a href="#" id="next" data-id="<%=@user.id%>">View Next Resident Bio</a>
 
 </div>
+
+<script type="text/javascript">
+  $(function(){
+
+    $('#next').on('click', function(e){
+      var nextId = parseInt($('#next').attr("data-id")) + 1;
+      $.getJSON("/users/" + nextId + ".json", function(data){
+        $("#username").text(data["name"])
+        $("#userbio").text(data["bio"])
+        $('#next').attr("data-id", nextId)
+
+
+    })
+    e.preventDefault()
+  })
+})
+
+</script>

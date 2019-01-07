@@ -49,7 +49,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned, :bio]
     respond_to do |f|
       f.html{render layout: 'sessions_layout'}
       f.json {render :json=> @mentors}
-    end 
+    end
     #render layout: 'sessions_layout'
   end
 
@@ -59,6 +59,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned, :bio]
   end
 
   def bio
+    #raise params.inspect
     @user = User.find(params[:id])
   end
 
