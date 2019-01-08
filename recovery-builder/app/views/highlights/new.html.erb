@@ -7,10 +7,15 @@
 <%end%>
 
 <div class="show">
+
+  <h1><u>Here are all your Highlights</u></h1>
+  <br><br>
   <div id="created_highlights">
-    <ul>
-      
-    </ul>
+
+      <%@user.highlights.each do|h|%>
+        <h3><p><%=h.content%></p></h3>
+        <%end%>
+        <br><br>
 
   </div>
 </div>
