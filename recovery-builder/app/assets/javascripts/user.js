@@ -18,9 +18,10 @@ $(function(){
 $('.mentors').on('click', function(e){
   $("#mentors").empty()
   $.getJSON(this.href, function(data){
-
     data.forEach(function(user){
-      $('#mentors').append('<p><h3>' + user["name"] + ' - ' + user["house"]["name"] + '<h3></p>')
+      let m = new Mentor(user)
+      console.log(m)
+      $('#mentors').append(m.format())
     })
   })
   e.preventDefault()
@@ -67,4 +68,13 @@ function Highlight(info){
 
 Highlight.prototype.format = function(){
   return '<p><h3>' + this.content +" "+ '</h3>' + '<h5 class="errors">' + '('+'New Highlight For '+ this.user.house.name + ' House)' + '<h5></p>'
+}
+
+function Mentor(info){
+  this.name = info.name
+  this.house = info.house.name
+}
+
+Mentor.prototype.format  = function(){
+  return '<p><h3>' + this.name + ' - ' + this.house + '<h3></p>'
 }
