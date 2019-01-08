@@ -43,9 +43,13 @@ $("#new_highlight").on('submit', function(e){
   var $authenticity_token = $("input[name='authenticity_token']").val()
 
   $.post(this.action, $(this).serialize()).done(function(response){
+    console.log(response)
+    let h = new Highlight(response)
+    console.log(h.format())
+    console.log(response)
     $("#highlight_content").val("")
-    $('#created_highlights').append('<p><h3>' + response.content + '</h3><p>')
-    console.log(response.content)
+    $('#created_highlights').append(h.format())
+
   })
 
   e.preventDefault()
@@ -55,3 +59,12 @@ $("#new_highlight").on('submit', function(e){
 
 
 });
+
+function Highlight(info){
+  this.content = info.content
+  this.user = info.user
+}
+
+Highlight.prototype.format = function(){
+  return '<p><h3>' + this.content +" "+ '('+'New Highlight For '+ this.user.house.name + ')' + '</h3><p>'
+}
