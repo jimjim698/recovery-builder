@@ -3,9 +3,9 @@ $(function(){
 
 
   $(".load_highlights").on('click', function(e){
-    alert("????")
     $('#highlights').empty()
     $.getJSON(this.href, function(data){
+      console.log(data.highlights)
       data.highlights.forEach(function(highlight){
         $('#highlights').append('<p>' + highlight["content"] +  '</p>')
       })

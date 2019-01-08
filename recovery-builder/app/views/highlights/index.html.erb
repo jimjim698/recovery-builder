@@ -1,15 +1,21 @@
+<div class= "show">
 <%if @user%>
-<h1>Highlights For <%=@user.name%></h1>
-<a href="/users/<%=@user.id%>/highlights" class="load_highlights" id = <%=@user.id%>>Load Highlights</a>
+<h1>Highlights For <%=@user.name%></h1><br>
+<div id="highlights">
+  Your daily highlights are a great way to track your progress and keep yourself accountable. Sometimes we  want to do so
+  much we forget to look back on how much we've already done. Here is your more most recent Highlight. Make sure to take
+  time to look through your past ones as well.<br><br><br>
+
+<%=@user.highlights.first.content%>
+</div>
+<a href="/users/<%=@user.id%>/highlights" class="load_highlights" id = <%=@user.id%>>Load All Highlights</a>
 <%else%>
 <h1>All Highlights</h1>
-<%end%>
+
 
 <%@highlights.each do |h|%>
 <p><%=h.created_at.strftime("%B %d, %Y") %> - <%= h.content%> (<%=h.user.name if h.user%>)</p>
 <%end%>
-<div id="h">
-<ul>
+<%end%>
 
-</ul>
 </div>
