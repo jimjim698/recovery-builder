@@ -6,7 +6,6 @@ $(function(){
     alert("????")
     $('#highlights').empty()
     $.getJSON(this.href, function(data){
-      console.log(data.highlights)
       data.highlights.forEach(function(highlight){
         $('#highlights').append('<p>' + highlight["content"] +  '</p>')
       })
@@ -20,7 +19,6 @@ $('.mentors').on('click', function(e){
   $.getJSON(this.href, function(data){
     data.forEach(function(user){
       let m = new Mentor(user)
-      console.log(m)
       $('#mentors').append(m.format())
     })
   })
@@ -44,10 +42,7 @@ $("#new_highlight").on('submit', function(e){
   var $authenticity_token = $("input[name='authenticity_token']").val()
 
   $.post(this.action, $(this).serialize()).done(function(response){
-    console.log(response)
     let h = new Highlight(response)
-    console.log(h.format())
-    console.log(response)
     $("#highlight_content").val("")
     $('#created_highlights').append(h.format())
 
