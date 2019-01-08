@@ -66,5 +66,5 @@ function Highlight(info){
 }
 
 Highlight.prototype.format = function(){
-  return '<p><h3>' + this.content +" "+ '('+'New Highlight For '+ this.user.house.name + ')' + '</h3><p>'
+  return '<p><h3>' + this.content +" "+ '</h3>' + '<h5 class="errors">' + '('+'New Highlight For '+ this.user.house.name + ' House)' + '<h5></p>'
 }
