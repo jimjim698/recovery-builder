@@ -38,8 +38,8 @@ e.preventDefault()
 })
 
 $("#new_highlight").on('submit', function(e){
-  var $highlight= $("#highlight_content").val()
-  var $authenticity_token = $("input[name='authenticity_token']").val()
+  //var $highlight= $("#highlight_content").val()
+  //var $authenticity_token = $("input[name='authenticity_token']").val()
 
   $.post(this.action, $(this).serialize()).done(function(response){
     let h = new Highlight(response)
