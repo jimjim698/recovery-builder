@@ -6,7 +6,7 @@
   much we forget to look back on how much we've already done. Here is your more most recent Highlight. Make sure to take
   time to look through your past ones as well.<br><br><br>
 
-<%=@user.highlights.first.content%>
+<%=@user.highlights.first.content if @user.highlights != []%>
 </div>
 <a href="/users/<%=@user.id%>/highlights" class="load_highlights" id = <%=@user.id%>>Load All Highlights</a>
 <%else%>
