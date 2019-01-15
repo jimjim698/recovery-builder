@@ -46,15 +46,36 @@ $("#new_highlight").on('submit', function(e){
     $("#highlight_content").val("")
     $('#created_highlights').append(h.format())
 
-  })
+  }).error(function(){
+    alert("error")
+  });
 
   e.preventDefault()
 })
 
-
-
+$('#button').on('click', function(e){
+  $('#all_highlights').empty()
+  $.getJSON(this.url, function(data){
+    data.sort(function(a,b){
+      if(a.content<b.content){return -1}
+      if(a.content>b.content){return 1}
+      return 0
+    })
+    data.forEach(function(h){
+      date = new Date(h.created_at).toDateString()
+      name = h.user.name
+      content = h.content
+      $('#all_highlights').append('<p>' + date + "   "+"-    " + content + " " +"(" +name + ")" +'</p>')
+      console.log(date)
+    })
+  })
+})
 
 });
+
+
+
+
 
 function Highlight(info){
   this.content = info.content

@@ -9,6 +9,7 @@ layout 'root_layout', except:[:show, :edit, :unassigned, :bio]
   end
 
   def create
+
     @houses = House.all
     @user = User.new(user_params)
     if @user.save
