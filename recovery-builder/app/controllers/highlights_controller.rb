@@ -19,12 +19,12 @@ class HighlightsController < ApplicationController
   end
 
   def index
-    
+
     if params[:user_id]
       @user = User.find(params[:user_id])
       @highlights = @user.highlights
       respond_to do |f|
-        f.json {render json: @highlights}
+        f.json {render json: @user}
         f.html{render :index}
       end
     elsif params[:house_id]
